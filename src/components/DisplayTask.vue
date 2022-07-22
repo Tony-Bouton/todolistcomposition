@@ -1,6 +1,6 @@
 <template>
   <!-- Créer une nouvelle tache  -->
-  <li>
+  <li class="card-body">
     <span> {{ newTask }} </span>
 
     <!-- Checkbox si Tache effectuée  -->
@@ -57,5 +57,12 @@ li {
   display: flex;
   justify-content: space-around;
   margin: 2vh;
+  border: solid rgba(171, 170, 170, 0.71) 2px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  padding: 5%;
+  box-shadow: 2px 2px 6px rgba(171, 170, 170, 0.71);
 }
 </style>

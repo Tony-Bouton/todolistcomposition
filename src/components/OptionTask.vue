@@ -1,12 +1,12 @@
 <template>
   <div class="optionContainer">
-    <p>nombre de taches : {{ taskList.length }}</p>
-    <button @click="deleteAll">
+    <p>Nombre de tâches : {{ taskList.length }}</p>
+    <button @click="deleteAll" class="btn btn-danger">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
-        fill="red"
+        fill="white"
         class="bi bi-trash"
         viewBox="0 0 16 16"
       >

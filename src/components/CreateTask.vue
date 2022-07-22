@@ -1,32 +1,45 @@
 <template>
-  <div class="wrapper">
+  <h1>To-do list vue js (composition)</h1>
+  <div class="create-container">
     <!-- Créer une nouvelle tache  -->
 
     <form action="" @submit.prevent="addTask">
-      <label for="todo">Nouvelle tache</label>
-      <input type="text" name="todo" id="todo" v-model="newTask" />
+      <label for="todo">Nouvelle tâche</label>
+      <input
+        type="text"
+        name="todo"
+        id="todo"
+        v-model="newTask"
+        class="form-control"
+      />
 
-      <input type="submit" value="Ajouter" />
+      <input type="submit" value="Ajouter" class="btn btn-success" />
     </form>
   </div>
 
   <!-- Afficher le nombre de tâches + supprimer toutes les taches -->
 
-  <OptionTask :taskList="taskList" :deleteAll="deleteAll"></OptionTask>
+  <OptionTask
+    v-if="taskList.length >= 1"
+    :taskList="taskList"
+    :deleteAll="deleteAll"
+  ></OptionTask>
 
   <!-- Afficher la liste de tâches -->
-  <ul>
-    <display-task
-      v-for="(item, index) in taskList"
-      :key="index"
-      :newTask="item"
-      :taskList="taskList"
-      :index="index"
-      :deleteTask="deleteTask"
-      :listener="listener"
-    >
-    </display-task>
-  </ul>
+  <div class="display-container" v-if="taskList.length >= 1">
+    <ul>
+      <display-task
+        v-for="(item, index) in taskList"
+        :key="index"
+        :newTask="item"
+        :taskList="taskList"
+        :index="index"
+        :deleteTask="deleteTask"
+        :listener="listener"
+      >
+      </display-task>
+    </ul>
+  </div>
 </template>
 
 <script setup>
@@ -40,4 +53,16 @@ const { newTask, taskList, addTask, deleteAll, deleteTask, index, listener } =
   useToDo("", []);
 </script>
 
-<style></style>
+<style>
+.create-container {
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  padding: 5%;
+}
+
+input {
+  margin: 2%;
+}
+</style>
