@@ -1,7 +1,9 @@
 <template>
-  //Créer une nouvelle tache
+  <!-- Créer une nouvelle tache  -->
   <li>
     <span> {{ newTask }} </span>
+
+    <!-- Checkbox si Tache effectuée  -->
     <label for="done"
       ><input
         type="checkbox"
@@ -36,6 +38,8 @@
 <script setup>
 import { ref } from "vue";
 const checked = ref(false);
+
+/*props*/
 const props = defineProps([
   "newTask",
   "taskList",

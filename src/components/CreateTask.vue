@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    /* Créer une nouvelle tache */
+    <!-- Créer une nouvelle tache  -->
 
     <form action="" @submit.prevent="addTask">
       <label for="todo">Nouvelle tache</label>
@@ -10,11 +10,11 @@
     </form>
   </div>
 
-  /*Afficher le nombre de tâches + supprimer toutes les taches */
+  <!-- Afficher le nombre de tâches + supprimer toutes les taches -->
 
   <OptionTask :taskList="taskList" :deleteAll="deleteAll"></OptionTask>
 
-  /*Afficher la liste de tâches */
+  <!-- Afficher la liste de tâches -->
   <ul>
     <display-task
       v-for="(item, index) in taskList"
