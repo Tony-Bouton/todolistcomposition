@@ -1,7 +1,18 @@
 <template>
+  //Créer une nouvelle tache
   <li>
-    <span> {{ newTask }} </span
-    ><button @click="deleteTask(index)" class="btn btn-danger">
+    <span> {{ newTask }} </span>
+    <label for="done"
+      ><input
+        type="checkbox"
+        name="done"
+        id="done"
+        @input="listener"
+        v-model="checked"
+      />
+      <span v-if="checked">Tache effectuée</span>
+    </label>
+    <button @click="deleteTask(index)" class="btn btn-danger">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -23,6 +34,8 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+const checked = ref(false);
 const props = defineProps([
   "newTask",
   "taskList",
@@ -30,6 +43,7 @@ const props = defineProps([
   "deleteAll",
   "deleteTask",
   "index",
+  "listener",
 ]);
 </script>
 

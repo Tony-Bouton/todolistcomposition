@@ -1,5 +1,7 @@
 <template>
   <div class="wrapper">
+    /* Créer une nouvelle tache */
+
     <form action="" @submit.prevent="addTask">
       <label for="todo">Nouvelle tache</label>
       <input type="text" name="todo" id="todo" v-model="newTask" />
@@ -8,8 +10,11 @@
     </form>
   </div>
 
+  /*Afficher le nombre de tâches + supprimer toutes les taches */
+
   <OptionTask :taskList="taskList" :deleteAll="deleteAll"></OptionTask>
 
+  /*Afficher la liste de tâches */
   <ul>
     <display-task
       v-for="(item, index) in taskList"
@@ -18,6 +23,7 @@
       :taskList="taskList"
       :index="index"
       :deleteTask="deleteTask"
+      :listener="listener"
     >
     </display-task>
   </ul>
@@ -30,10 +36,8 @@ import { useToDo } from "@/composables/useToDo";
 import DisplayTask from "@/components/DisplayTask";
 import OptionTask from "@/components/OptionTask";
 
-const { newTask, taskList, addTask, deleteAll, deleteTask, index } = useToDo(
-  "",
-  []
-);
+const { newTask, taskList, addTask, deleteAll, deleteTask, index, listener } =
+  useToDo("", []);
 </script>
 
 <style></style>

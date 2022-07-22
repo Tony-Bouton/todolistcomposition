@@ -20,11 +20,16 @@ export function useToDo(intialNewTask, intialTaskList) {
     console.log(index);
   }
 
+  function listener(e) {
+    console.log(e.target.value);
+  }
+
   return {
     newTask,
     taskList,
     addTask,
     deleteAll,
     deleteTask,
+    listener,
   };
 }
